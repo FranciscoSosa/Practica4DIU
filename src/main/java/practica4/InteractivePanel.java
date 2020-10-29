@@ -16,8 +16,8 @@ public class InteractivePanel extends JPanel{
             this.y = y;
         }
         
-        private int x;
-        private int y;
+        private final int x;
+        private final int y;
     }
 
     public InteractivePanel() {
@@ -44,10 +44,6 @@ public class InteractivePanel extends JPanel{
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
-
-    public void setCircleColor(Color circleColor) {
-        this.circleColor = circleColor;
-    }
     
     public Color getForegroundColor() {
         return foregroundColor;
@@ -56,11 +52,7 @@ public class InteractivePanel extends JPanel{
     public Color getBackgroundColor() {
         return backgroundColor;
     }
-
-    public Color getCircleColor() {
-        return circleColor;
-    }
-    
+   
     public void addCoordinate(int x, int y){
         coordinates.add(new Point(x, y));
     }
@@ -71,6 +63,5 @@ public class InteractivePanel extends JPanel{
     
     private Color foregroundColor;
     private Color backgroundColor;
-    private Color circleColor;
     private final List<Point> coordinates;
 }
