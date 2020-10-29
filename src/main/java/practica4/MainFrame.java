@@ -9,15 +9,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
         initComponents();
-        //Java 9
-        //stringColorMap = Map.of("White", Color.WHITE, "Black", Color.BLACK,
-        //        "Red", Color.RED, "Green", Color.GREEN, "Blue", Color.BLUE);
         stringColorMap = new HashMap<>();
         stringColorMap.put("White", Color.WHITE);
         stringColorMap.put("Black", Color.BLACK);
         stringColorMap.put("Red", Color.RED);
         stringColorMap.put("Green", Color.GREEN);
         stringColorMap.put("Blue", Color.BLUE);
+        stringColorMap.put("Magenta", Color.MAGENTA);
+        stringColorMap.put("Gray", Color.GRAY);
+        stringColorMap.put("Yellow", Color.YELLOW);
     }
 
 
@@ -31,6 +31,8 @@ public class MainFrame extends javax.swing.JFrame {
         backgroundComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         foregroundComboBox = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ratón interactivo");
@@ -58,7 +60,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Color de fondo");
 
-        backgroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White", "Black", "Blue" }));
+        backgroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White", "Gray", "Blue", "Magenta" }));
         backgroundComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backgroundComboBoxActionPerformed(evt);
@@ -67,7 +69,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Color de estela");
 
-        foregroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Red", "Green" }));
+        foregroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Red", "Green", "Yellow" }));
         foregroundComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foregroundComboBoxActionPerformed(evt);
@@ -83,10 +85,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(foregroundComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backgroundComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(backgroundComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(foregroundComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,13 +105,25 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(90, 90, 90))
         );
 
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel3.setText("Francisco Jose Santana Sosa");
+
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel4.setText("Felipe Santana Hernández");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(iPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -120,8 +134,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,7 +160,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_foregroundComboBoxActionPerformed
 
     private void iPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iPanelMouseMoved
-
+        /*Se usa un contador para seleccionar un punto cada dos movimientos del ratón,
+        cuando el contador llega a 10 este se resetea y se llama a repaint() para pintar
+        5 círculos */
         if(counter % 2 == 0){
             iPanel.addCoordinate(evt.getX(), evt.getY());
         }
@@ -193,6 +214,8 @@ public class MainFrame extends javax.swing.JFrame {
     private practica4.InteractivePanel iPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
     private final Map<String, Color> stringColorMap;
